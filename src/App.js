@@ -1,25 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Redirect, Route} from 'react-router-dom'
 import './App.css';
+import Navbar from './components/Layout/Navbar';
+import {ThemeProvider as MuiThemeProvider}  from '@material-ui/core/styles';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import LatestMovies from './pages/Movies/LatestMovies';
+import NowPlayingMovies from './pages/Movies/NowPlayingMovies';
+import UpcomingMovies from './pages/Movies/UpcomingMovies';
+import AllMovies from './pages/Movies/AllMovies';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#33c9dc',
+      main: '#00bcd4',
+      dark: '#008394',
+      contrastText: '#fff'
+    },
+    secondary: {
+      light: '#ff6333',
+      main: '#ff3d00',
+      dark: '#b22a00',
+      contrastText: '#fff'
+    }
+  }
+});
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <MuiThemeProvider theme={theme}>
+        <div className="App">
+          <Router>
+            <Navbar/>
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={AllMovies}/>
+                <Route path='/movie/latest' component={LatestMovies}/>
+                <Route path='/movie/now-playing' component={NowPlayingMovies}/>
+                <Route path='/movie/upcoming' component={UpcomingMovies}/>
+                <Redirect to="/"/>
+              </Switch>
+            </div>
+          </Router>
+        </div>
+      </MuiThemeProvider>
   );
 }
 
