@@ -1,0 +1,1 @@
+export const GET_SEARCH_MOVIES = 'GET_SEARCH_MOVIES'
