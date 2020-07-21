@@ -5,6 +5,8 @@ import Axios from 'axios'
 import People from '@material-ui/icons/People'
 import { connect } from 'react-redux'
 import { setCurrentMovieDetails } from '../../../actions/actions'
+import { store } from '../../../store/store'
+import { LOADING_UI } from '../../../actions/actionTypes'
 
 const styles = {
     paper: {
@@ -23,14 +25,14 @@ const styles = {
     },
     progress: {
         textAlign: 'center'
-    },
-    spinnerDiv: {
-        textAlign: 'center',
-        margin: '50 0'
     }
 }
-function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMovieDetails}) {
+function MovieDetails({loadingUI, classes, match: { params: {movieId}}, movieDetails, setMovieDetails}) {
     useEffect(()=> {
+        store.dispatch({
+            type: LOADING_UI,
+            payload: true
+        })
         Axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=5f9bfd5ab4dce1dd61c8ed83e1680d4e&language=en-US`)
         .then(res=> {
             setMovieDetails(res.data)
@@ -53,7 +55,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
         countries += country + ' '
     });
     return (
-        !movieDetails.id ? <p>Loading...</p> : (
+        loadingUI ? <p className={classes.progress}>Loading...</p> : (
         <Grid container>
             <Grid item xs={12} sm={12} md={3}>
                 <div style={{textAlign: 'center', marginBottom: '5%'}}>
@@ -65,8 +67,8 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
             <Paper className={classes.paper}>
                 <Paper className={classes.subPaper}>
                 <Typography color="textSecondary" variant="h3">{movieDetails.title}</Typography>
-                <Typography color="textSecondary" variant="h6">({movieDetails.tagline})</Typography>
-                <Typography color="primary" variant="subtitle2">{genres}</Typography>
+                <Typography color="textSecondary" variant="h6">({!movieDetails.tagline ? 'No Tagline' : movieDetails.tagline})</Typography>
+                <Typography color="primary" variant="subtitle2">Genre: {genres}</Typography>
                 <Grid container>
                 <Grid item md={3}>
                     <IconButton>
@@ -103,7 +105,8 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
 
 const mapStateToProps = state=> {
     return {
-        movieDetails: state.movies.currentMovieDetails
+        movieDetails: state.movies.currentMovieDetails,
+        loadingUI: state.movies.loadingUI
     }
 }
 

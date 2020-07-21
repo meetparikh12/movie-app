@@ -4,6 +4,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import Axios from 'axios';
 import {connect} from 'react-redux';
 import {setSearchMovies} from '../../actions/actions';
+import { store } from '../../store/store';
+import { LOADING_UI } from '../../actions/actionTypes';
 const styles = {
     root: {
         padding: '2px 4px',
@@ -27,6 +29,10 @@ function SearchMovie({classes, setSearchMovies}) {
         const url = `https://api.themoviedb.org/3/search/movie?api_key=5f9bfd5ab4dce1dd61c8ed83e1680d4e&language=en-US&query=${query}&page=1&include_adult=false`
         Axios.get(url)
         .then(res=> {
+            store.dispatch({
+                type: LOADING_UI,
+                payload: true
+            })
             setSearchMovies(res.data.results)
         })
         .catch(err=> {
