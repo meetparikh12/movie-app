@@ -1,4 +1,5 @@
 A responsive movie web-app developed using React.
+
 For installing the app in your local machine, follow the below steps:
 - Download the zip OR Clone the app
 - Run command *npm install or yarn install* on your terminal from root directory of the project to install all dependencies of the project.
