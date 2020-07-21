@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { connect } from 'react-redux'
 import MovieItems from '../../components/Movies/MovieItems/MovieItems'
 import { setNowPlayingMovies } from '../../actions/actions'
+import { Grid } from '@material-ui/core'
 
 function NowPlayingMovies({nowPlayingMovies,setNowPlayingMovies}) {
     useEffect(()=> {
@@ -22,7 +23,9 @@ function NowPlayingMovies({nowPlayingMovies,setNowPlayingMovies}) {
     )
     return (
         <Fragment>
-            {movieItems}
+            <Grid container>
+                {movieItems}
+            </Grid>
         </Fragment>
     )
 }

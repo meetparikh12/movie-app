@@ -2,6 +2,7 @@ import React, { Fragment} from 'react'
 import SearchMovie from '../../components/SearchMovie/SearchMovie'
 import MovieItems from '../../components/Movies/MovieItems/MovieItems'
 import {connect} from 'react-redux'
+import { Grid } from '@material-ui/core'
 
 function AllMovies({movies}) {
 
@@ -13,7 +14,11 @@ function AllMovies({movies}) {
     return (
         <Fragment>
             <div className="serch_section"><SearchMovie/></div>
-            <div className="movies_section">{movieItems}</div>
+            <div className="movies_section">
+                <Grid container>
+                    {movieItems}
+                </Grid>
+            </div>
         </Fragment>
     )
 }

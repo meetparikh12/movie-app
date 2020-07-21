@@ -35,7 +35,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
         .then(res=> {
             setMovieDetails(res.data)
         })
-    })
+    },[movieId, setMovieDetails])
     let genres= '';
     let genreType = !movieDetails.genres ? [] : movieDetails.genres.map(genre=> genre.name)
     genreType.forEach(genre=> {
@@ -57,6 +57,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
         <Grid container>
             <Grid item xs={12} sm={12} md={3}>
                 <div style={{textAlign: 'center', marginBottom: '5%'}}>
+                {!movieDetails.poster_path}
                 <img src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movieDetails.poster_path}`} alt={`${movieDetails.title} Poster`} className={classes.poster}/>
                 </div>
             </Grid> 
@@ -64,7 +65,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
             <Paper className={classes.paper}>
                 <Paper className={classes.subPaper}>
                 <Typography color="textSecondary" variant="h3">{movieDetails.title}</Typography>
-                <Typography color="textSecondary" variant="h6">{movieDetails.tagline}</Typography>
+                <Typography color="textSecondary" variant="h6">({movieDetails.tagline})</Typography>
                 <Typography color="primary" variant="subtitle2">{genres}</Typography>
                 <Grid container>
                 <Grid item md={3}>
@@ -84,7 +85,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
                 <Typography color="secondary" variant="subtitle2">{movieDetails.status}</Typography>
                 <Typography variant="subtitle2" color="textSecondary"> Date : {movieDetails.release_date}</Typography>
                 <Typography color="textSecondary" variant="h6">Languages Spoken:</Typography>
-                <Typography color="textSecondary" variant="body2">{languages}</Typography>
+                <Typography color="textSecondary" variant="body2">{languages.length===1? 'Not yet revealed': languages}</Typography>
                 
                 <Typography color="textSecondary" variant="h6">Production Countries:</Typography>
                 <Typography color="textSecondary" variant="body2">{countries}</Typography>
@@ -92,7 +93,7 @@ function MovieDetails({classes, match: { params: {movieId}}, movieDetails, setMo
                 <br/>
                 <Paper className={classes.subPaper}>
                 <Typography color="textSecondary" variant="h6">Description:</Typography>
-                <Typography color="initial" variant="body1" >{movieDetails.overview}</Typography>
+                <Typography color="initial" variant="body1" >{!movieDetails.overview? 'Not yet revealed' : movieDetails.overview}</Typography>
                 </Paper>
                 </Paper>
             </Grid>

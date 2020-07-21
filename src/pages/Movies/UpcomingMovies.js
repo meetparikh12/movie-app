@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { connect } from 'react-redux'
 import MovieItems from '../../components/Movies/MovieItems/MovieItems'
 import { setUpcomingMovies } from '../../actions/actions'
+import { Grid } from '@material-ui/core'
 
 function UpcomingMovies({setUpcomingMovies, upcomingMovies}) {
     useEffect(()=> {
@@ -22,7 +23,9 @@ function UpcomingMovies({setUpcomingMovies, upcomingMovies}) {
     )
     return (
         <Fragment>
-            {movieItems}
+            <Grid container>
+                {movieItems}
+            </Grid>
         </Fragment>
     )
 }

@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import MovieItems from '../../components/Movies/MovieItems/MovieItems'
 import { setLatestMovie } from '../../actions/actions'
+import { Grid } from '@material-ui/core'
 
 function LatestMovies({latestMovie,setLatestMovie}) {
     useEffect(()=> {
@@ -20,7 +21,9 @@ function LatestMovies({latestMovie,setLatestMovie}) {
     )
     return (
         <Fragment>
-            {movieItems}
+            <Grid container>
+                {movieItems}
+            </Grid>
         </Fragment>
     )
 }
