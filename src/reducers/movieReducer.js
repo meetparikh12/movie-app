@@ -1,9 +1,10 @@
-import { GET_SEARCH_MOVIES, GET_NOW_PLAYING_MOVIES, GET_LATEST_MOVIE, GET_UPCOMING_MOVIES } from "../actions/actionTypes";
+import { GET_SEARCH_MOVIES, GET_NOW_PLAYING_MOVIES, GET_LATEST_MOVIE, GET_UPCOMING_MOVIES, GET_CURRENT_MOVIE_DETAILS } from "../actions/actionTypes";
 const initialState = {
     searchMovies: [],
     nowPlayingMovies: [],
     latestMovie: {},
-    upcomingMovies: []
+    upcomingMovies: [],
+    currentMovieDetails: {}
 }
 export const movieReducer = (state=initialState, action)=> {
     switch (action.type) {
@@ -26,6 +27,11 @@ export const movieReducer = (state=initialState, action)=> {
             return {
                 ...state,
                 upcomingMovies: action.payload
+            }
+        case GET_CURRENT_MOVIE_DETAILS: 
+            return {
+                ...state,
+                currentMovieDetails: action.payload
             }
         default: return state;
     }

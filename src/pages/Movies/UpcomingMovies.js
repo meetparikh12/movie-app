@@ -17,7 +17,7 @@ function UpcomingMovies({setUpcomingMovies, upcomingMovies}) {
 
     const movieItems = upcomingMovies[0]==null ? <p>Loading...</p> : (
         upcomingMovies.filter(movie=> movie.poster_path).map((movie)=> {
-            return <MovieItems key={movie.id} image={movie.poster_path} title={movie.title}/>
+            return <MovieItems key={movie.id} movieId={movie.id} image={movie.poster_path} title={movie.title}/>
         })
     )
     return (

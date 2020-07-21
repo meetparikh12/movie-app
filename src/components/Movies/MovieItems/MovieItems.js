@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const styles = {
     root: {
@@ -13,7 +14,7 @@ const styles = {
         objectFit: 'cover'
     },
 }
-function MovieItems({classes, image, title}) {
+function MovieItems({classes, image, title, movieId}) {
     return (
         <Card className={classes.root}>
             <CardActionArea>
@@ -29,9 +30,9 @@ function MovieItems({classes, image, title}) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Link to={`/movie/details/${movieId}`}><Button size="small" color="primary">
                 More Details
-                </Button>
+                </Button></Link>
             </CardActions>
         </Card>
     )

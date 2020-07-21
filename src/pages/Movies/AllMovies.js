@@ -7,7 +7,7 @@ function AllMovies({movies}) {
 
     const movieItems = !movies ? <p>Loading...</p> : (
         movies.filter(movie=> movie.poster_path).map((movie)=> {
-            return <MovieItems key={movie.id} image={movie.poster_path} title={movie.title}/>
+            return <MovieItems key={movie.id}  movieId={movie.id} image={movie.poster_path} title={movie.title}/>
         })
     )
     return (

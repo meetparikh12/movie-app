@@ -16,7 +16,7 @@ function LatestMovies({latestMovie,setLatestMovie}) {
     },[setLatestMovie])
 
     const movieItems = !latestMovie.id ? <p>Loading...</p> : (
-        <MovieItems key={latestMovie.id} image={latestMovie.poster_path} title={latestMovie.title}/>
+        <MovieItems key={latestMovie.id} movieId={latestMovie.id} image={latestMovie.poster_path} title={latestMovie.title}/>
     )
     return (
         <Fragment>

@@ -8,6 +8,7 @@ import LatestMovies from './pages/Movies/LatestMovies';
 import NowPlayingMovies from './pages/Movies/NowPlayingMovies';
 import UpcomingMovies from './pages/Movies/UpcomingMovies';
 import AllMovies from './pages/Movies/AllMovies';
+import MovieDetails from './pages/Movies/MovieDetails/MovieDetails';
 
 const theme = createMuiTheme({
   palette: {
@@ -37,6 +38,7 @@ function App() {
                 <Route path='/movie/latest' component={LatestMovies}/>
                 <Route path='/movie/now-playing' component={NowPlayingMovies}/>
                 <Route path='/movie/upcoming' component={UpcomingMovies}/>
+                <Route path='/movie/details/:movieId' component={MovieDetails}/>
                 <Redirect to="/"/>
               </Switch>
             </div>
