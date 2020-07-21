@@ -7,9 +7,9 @@ function Navbar() {
         <AppBar>
             <Toolbar className="nav-container">
                 <Fragment>
-                    <Button color="inherit" component={Link} to="/latest/movies">LATEST</Button>
-                    <Button color="inherit" component={Link} to="/now-playing/movies">NOW PLAYING</Button>
-                    <Button color="inherit" component={Link} to="/upcoming/movies">UPCOMING</Button>
+                    <Button color="inherit" component={Link} to="/movie/latest">LATEST</Button>
+                    <Button color="inherit" component={Link} to="/movie/now-playing">NOW PLAYING</Button>
+                    <Button color="inherit" component={Link} to="/movie/upcoming">UPCOMING</Button>
                 </Fragment>
             </Toolbar>
         </AppBar>

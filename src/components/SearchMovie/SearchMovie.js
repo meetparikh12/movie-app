@@ -32,24 +32,16 @@ function SearchMovie({classes, setSearchMovies}) {
         .catch(err=> {
             console.log(err.response.data);
         })
-    })
+    },[setSearchMovies,query])
     const submitQuery = event => {
         event.preventDefault();
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=5f9bfd5ab4dce1dd61c8ed83e1680d4e&language=en-US&query=${query}&page=1&include_adult=false`
-        Axios.get(url)
-        .then(res=> {
-            setSearchMovies(res.data.results)
-        })
-        .catch(err=> {
-            console.log(err.response.data);
-        })
     }
     return (
         <Fragment>
             <Paper component="form" onSubmit={submitQuery} className={classes.root}>
                 <InputBase
                     className={classes.input}
-                    placeholder={`e.g ${query}`}
+                    placeholder={`Search Movie`}
                     value={query}
                     inputProps={{ 'aria-label': 'search movie' }}
                     onChange={(event)=> setQuery(event.target.value)}

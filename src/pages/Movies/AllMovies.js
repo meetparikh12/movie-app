@@ -12,8 +12,8 @@ function AllMovies({movies}) {
     )
     return (
         <Fragment>
-            <SearchMovie/>
-            <div style={{width: '33.33%'}}>{movieItems}</div>
+            <div className="serch_section"><SearchMovie/></div>
+            <div className="movies_section">{movieItems}</div>
         </Fragment>
     )
 }
