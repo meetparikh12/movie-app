@@ -19,9 +19,7 @@ const styles = {
 function MovieItems({classes, image, title, movieId}) {
 
     useEffect(() => {
-        console.log("Gds")
             const faderItems = document.querySelectorAll('.movieItem')
-            console.log(faderItems)
             const options = {
                 threshold: 0,
                 rootMargin: "0px 0px -250px 0px"
