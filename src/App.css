@@ -25,13 +25,17 @@ a {
 .search_section{
   padding: 25px 0;
 }
-
+.movies_section{
+  margin-bottom: 5%;
+}
 .movieItem {
   opacity: 0;
-  transform: translateY(200px);
-  transition: opacity 1s ease-in, transform 1s ease-in;
+  transition: opacity 1s ease-in;
 }
 .appear {
   opacity: 1;
-  transform: translate(0,0)
+}
+
+.movie_type{
+  margin: 10% 0 5% 0
 }

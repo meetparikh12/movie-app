@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect } from 'react'
 import Axios from 'axios'
 import {connect} from 'react-redux'
 import MovieItems from '../../components/Movies/MovieItems/MovieItems'
@@ -29,11 +29,11 @@ function LatestMovies({loadingUI, latestMovie,setLatestMovie}) {
         <MovieItems key={latestMovie.id} movieId={latestMovie.id} image={latestMovie.poster_path} title={latestMovie.title}/>
     )
     return (
-        <Fragment>
+        <div className="movie_type">
             <Grid container>
                 {movieItems}
             </Grid>
-        </Fragment>
+        </div>
     )
 }
 
