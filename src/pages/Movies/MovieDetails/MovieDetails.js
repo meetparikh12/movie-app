@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { setCurrentMovieDetails } from '../../../actions/actions'
 import { store } from '../../../store/store'
 import { LOADING_UI } from '../../../actions/actionTypes'
+import MovieDetailsSkeleton from '../../../components/Skeleton/MovieDetailsSkeleton'
 
 const styles = {
     paper: {
@@ -55,8 +56,8 @@ function MovieDetails({loadingUI, classes, match: { params: {movieId}}, movieDet
         countries += country + ' '
     });
     return (
-        loadingUI ? <p className={classes.progress}>Loading...</p> : (
-        <Grid container>
+        loadingUI ? <MovieDetailsSkeleton/> : (
+        <Grid container style={{marginTop: '10%'}}>
             <Grid item xs={12} sm={12} md={3}>
                 <div style={{textAlign: 'center', marginBottom: '5%'}}>
                 {!movieDetails.poster_path}
