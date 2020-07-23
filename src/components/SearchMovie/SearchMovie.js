@@ -36,7 +36,7 @@ function SearchMovie({classes, setSearchMovies}) {
             setSearchMovies(res.data.results)
         })
         .catch(err=> {
-            console.log(err.response.data);
+            console.log(err);
         })
     },[setSearchMovies,query])
     const submitQuery = event => {
@@ -59,7 +59,6 @@ function SearchMovie({classes, setSearchMovies}) {
         </Fragment>
     )
 }
-
 const mapDispatchToProps = dispatchEvent => {
     return {
         setSearchMovies: (movies)=> dispatchEvent(setSearchMovies(movies))

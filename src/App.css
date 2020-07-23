@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  margin: 80px auto 0 auto;
+  margin: 65px auto 0 auto;
   max-width: 1000px;
 }
 
@@ -21,4 +21,17 @@ body {
 
 a {
   text-decoration: none;
+}
+.search_section{
+  padding: 25px 0;
+}
+
+.movieItem {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: opacity 1s ease-in, transform 1s ease-in;
+}
+.appear {
+  opacity: 1;
+  transform: translate(0,0)
 }
