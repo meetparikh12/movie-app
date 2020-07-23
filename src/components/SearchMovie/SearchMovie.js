@@ -7,13 +7,6 @@ import {setSearchMovies} from '../../actions/actions';
 import { store } from '../../store/store';
 import { LOADING_UI } from '../../actions/actionTypes';
 const styles = {
-    root: {
-        padding: '2px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 400,
-        margin: '0 auto'
-    },
     input: {
         marginLeft: 10,
         flex: 1,
@@ -44,7 +37,7 @@ function SearchMovie({classes, setSearchMovies}) {
     }
     return (
         <Fragment>
-            <Paper component="form" onSubmit={submitQuery} className={classes.root}>
+            <Paper component="form" onSubmit={submitQuery} className="search_form">
                 <InputBase
                     className={classes.input}
                     placeholder={`Search Movie`}
