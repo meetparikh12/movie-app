@@ -52,6 +52,9 @@ a {
     width: 100%;
   }
   .search_section{
-    margin: 0 5% 0 5%;
+    margin: 0 6% 0 5%;
+  }
+  .nav-container{
+    margin: 0
   }
 }
