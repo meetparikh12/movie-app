@@ -6,6 +6,7 @@ const styles = {
         width: '200px',
         height: '300px',
         maxWidth: '100%',
+        margin: '0 auto 5% auto',
         backgroundColor: 'rgba(0,0,0,0.3)'
     },
     paper: {
@@ -79,9 +80,7 @@ function MovieDetailsSkeleton({classes}) {
     return (
         <Grid container style={{marginTop: '10%'}}>
             <Grid item xs={12} sm={12} md={3}>
-                <div style={{textAlign: 'center', marginBottom: '5%'}}>
-                    <div className={classes.posterImage}/>
-                </div>
+                <div className={classes.posterImage}></div>
             </Grid> 
             <Grid item xs={12} sm={12} md={9}>
                 <Paper className={classes.paper}>
