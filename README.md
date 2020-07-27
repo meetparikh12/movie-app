@@ -15,4 +15,4 @@ Modules covered:
 - LATEST movie
 - SEARCH BAR for searching name of any movie
 
-Link to the project: https://wwww.explore-movie.netlify.app
+Link to the project: https://explore-movie.netlify.app
