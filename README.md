@@ -14,3 +14,5 @@ Modules covered:
 - UPCOMING movies
 - LATEST movie
 - SEARCH BAR for searching name of any movie
+
+Link to the project: explore-movie.netlify.app
