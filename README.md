@@ -1,3 +1,4 @@
+# Movie-Explorer 
 A Responsive Movie Web-App developed using React.
 
 For installing the app on your local machine, follow the below steps:
